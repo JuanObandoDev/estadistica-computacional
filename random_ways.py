@@ -20,14 +20,16 @@ def simulation(step, attempts, walker_class):
         simulation = walking(camp, walker, step)
         distances.append(round(simulation, 1))
 
+    return distances
+
 def main(distances, attempts, walker_class):
     for step in distances:
         distances = simulation(step, attempts, walker_class)
         prom = round(sum(distances) / len(distances), 4)
-        max = max(distances)
-        min = min(distances)
+        maximum = max(distances)
+        minimum = min(distances)
         print(f'{walker_class.__name__} random walk of {step} steps')
-        print(f'Average distance: {prom}, Max distance: {max}, Min distance: {min}\n')
+        print(f'Average distance: {prom}, Max distance: {maximum}, Min distance: {minimum}\n')
 
 if __name__ == "__main__":
     distances = [10, 100, 1000, 10000]
